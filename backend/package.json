@@ -1,6 +1,8 @@
 {
   "dependencies": {
     "@supabase/ssr": "^0.12.3",
-    "@supabase/supabase-js": "^2.110.6"
+    "@supabase/supabase-js": "^2.110.6",
+    "@tailwindcss/cli": "^4.3.2",
+    "tailwindcss": "^4.3.2"
   }
 }
