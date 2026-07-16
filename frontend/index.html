@@ -1,22 +1,74 @@
 <!DOCTYPE html>
-<html class="dark">
-
+<html lang="es">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Focus Session</title>
-  <script src="https://cdn.tailwindcss.com"></script>
-  <link rel="stylesheet" href="style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Focusly Kids — ¡Tu Misión de Aprendizaje!</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        body { background-color: #FDF6E3; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; }
+        .glow-effect { animation: pulse 2s infinite; }
+        @keyframes pulse { 0%, 100% { opacity: 1; } 50% { opacity: 0.7; } }
+    </style>
 </head>
+<body class="text-gray-800">
 
-<body class="bg-[#050505] text-white">
-  <div id="app" class="max-w-6xl mx-auto p-10">
-    <div id="remoteVideoContainer" class="grid grid-cols-2 gap-6"></div>
-    <button id="btnAction" class="bg-indigo-600 px-8 py-4 rounded-xl">INICIAR SESIÓN</button>
-    <div id="timer" class="text-4xl font-mono mt-4">25:00</div>
-    <div id="errorMsg" class="text-red-500 mt-4"></div>
-  </div>
-  <script type="module" src="main.js"></script>
+    <!-- Banner Inspirador -->
+    <div class="bg-gradient-to-r from-blue-500 to-indigo-600 text-white p-5 text-center font-bold shadow-lg rounded-b-3xl">
+        <p class="text-lg">✨ ¡Estás en tu zona de enfoque! Aquí aprendemos, crecemos y nos acompañamos.</p>
+        <p class="text-sm opacity-90 mt-1 italic">"Tu esfuerzo de hoy es el éxito de mañana. ¡Disfruta tu misión!"</p>
+    </div>
+
+    <div class="max-w-4xl mx-auto p-6">
+        <!-- Header -->
+        <header class="flex justify-between items-center py-6">
+            <h1 class="text-4xl text-orange-500 font-extrabold tracking-tight">Focusly Kids</h1>
+            
+            <!-- Menú Desplegable -->
+            <div class="relative">
+                <button id="durationToggle" class="bg-blue-500 text-white px-6 py-2 rounded-full font-bold shadow-md hover:bg-blue-600 transition">
+                    <span id="durationLabel">Tiempo: 25 min</span>
+                </button>
+                <ul id="durationList" class="hidden absolute right-0 mt-2 bg-white border-4 border-blue-200 rounded-2xl shadow-xl p-2 w-40 z-10">
+                    <li class="p-2 hover:bg-yellow-100 cursor-pointer rounded-lg text-center" data-minutes="25">25 min</li>
+                    <li class="p-2 hover:bg-yellow-100 cursor-pointer rounded-lg text-center" data-minutes="45">45 min</li>
+                    <li class="p-2 hover:bg-yellow-100 cursor-pointer rounded-lg text-center" data-minutes="60">60 min</li>
+                </ul>
+            </div>
+        </header>
+
+        <!-- Área Central -->
+        <section class="text-center py-10 bg-white rounded-3xl shadow-inner border-4 border-blue-100 glow-effect">
+            <h2 class="text-4xl mb-4 text-blue-600 font-bold">¡Vamos a estudiar juntos!</h2>
+            <p class="text-lg mb-8 text-gray-600 px-10">Elige tu tiempo y pulsa el botón para empezar tu misión. ¡Tu compañero de estudio te espera!</p>
+            
+            <button id="btnAction" class="bg-green-500 text-white text-xl px-10 py-4 rounded-full font-bold shadow-lg hover:bg-green-600 transform transition hover:scale-105">
+                ¡EMPEZAR SESIÓN!
+            </button>
+            <div id="timer" class="text-5xl font-bold mt-6 text-orange-400">25:00</div>
+        </section>
+
+        <!-- Video Stage -->
+        <div id="remoteVideoContainer" class="grid grid-cols-1 md:grid-cols-2 gap-6 mt-10"></div>
+        <div id="errorMsg" class="text-red-500 text-center font-bold mt-4"></div>
+    </div>
+
+    <script>
+        const toggle = document.getElementById('durationToggle');
+        const list = document.getElementById('durationList');
+        const durationLabel = document.getElementById('durationLabel');
+        const timer = document.getElementById('timer');
+
+        toggle.addEventListener('click', () => list.classList.toggle('hidden'));
+        list.querySelectorAll('li').forEach(item => {
+            item.addEventListener('click', (e) => {
+                const min = e.target.dataset.minutes;
+                durationLabel.textContent = `Tiempo: ${min} min`;
+                timer.textContent = `${min}:00`;
+                list.classList.add('hidden');
+            });
+        });
+    </script>
+    <script type="module" src="main.js"></script>
 </body>
-
 </html>
