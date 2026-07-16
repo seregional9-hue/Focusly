@@ -9,8 +9,11 @@ btn.onclick = async () => {
     errorDiv.textContent = '';
 
     try {
-        const token = await API.getToken("focus_room_01", "user_abc");
-        const engine = new FocusEngine('wss://focusly-58gbx3or.livekit.cloud', token); // ⚠️ CAMBIAR por tu URL real de LiveKit
+        // Generamos un usuario único cada vez, para evitar choques de identidad en LiveKit
+        const userId = "user_" + Math.random().toString(36).substring(2, 10);
+
+        const token = await API.getToken("focus_room_01", userId);
+        const engine = new FocusEngine('wss://focusly-58gbx3or.livekit.cloud', token);
         await engine.startSession();
     } catch (err) {
         console.error(err);
