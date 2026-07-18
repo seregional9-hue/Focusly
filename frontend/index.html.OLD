@@ -1,21 +1,36 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Focusly — Tu Cuartel General</title>
-    <link    <script src="https://cdn.tailwindcss.com"></script>
+    <link <script src="https://cdn.tailwindcss.com">
+    </script>
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Fredoka:wght@400;700&display=swap');
-        body { background: #FDF6E3; font-family: 'Fredoka', sans-serif; }
-        .card-mission { transition: transform 0.2s, box-shadow 0.2s; cursor: pointer; }
-        .card-mission:hover { transform: scale(1.05); }
+
+        body {
+            background: #FDF6E3;
+            font-family: 'Fredoka', sans-serif;
+        }
+
+        .card-mission {
+            transition: transform 0.2s, box-shadow 0.2s;
+            cursor: pointer;
+        }
+
+        .card-mission:hover {
+            transform: scale(1.05);
+        }
     </style>
 </head>
+
 <body class="p-4 md:p-8">
 
     <!-- Banner Dinámico (Se actualiza al elegir misión) -->
-    <div id="statusBanner" class="hidden max-w-5xl mx-auto bg-green-500 text-white p-6 rounded-3xl shadow-xl text-center mb-8 border-4 border-white">
+    <div id="statusBanner"
+        class="hidden max-w-5xl mx-auto bg-green-500 text-white p-6 rounded-3xl shadow-xl text-center mb-8 border-4 border-white">
         <h2 id="statusTitle" class="text-2xl font-black">¡Misión lista!</h2>
         <p id="statusMsg" class="mt-1 font-medium">Preparado para empezar...</p>
     </div>
@@ -23,17 +38,20 @@
     <main class="max-w-5xl mx-auto">
         <h1 class="text-4xl font-black text-indigo-900 mb-2">¡Hola, Capitán! 👨‍🚀</h1>
         <p class="text-gray-600 mb-8">¿Cuál es tu misión para hoy?</p>
-        
+
         <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-10">
-            <div class="card-mission bg-white p-6 rounded-3xl border-4 border-yellow-400 shadow-lg text-center" onclick="setMission('Laboratorio 🧠', '¡A estudiar a tope! Estás en modo estudio.')">
+            <div class="card-mission bg-white p-6 rounded-3xl border-4 border-yellow-400 shadow-lg text-center"
+                onclick="setMission('Laboratorio 🧠', '¡A estudiar a tope! Estás en modo estudio.')">
                 <div class="text-5xl mb-4">🧠</div>
                 <h3 class="font-bold text-lg">Laboratorio</h3>
             </div>
-            <div class="card-mission bg-white p-6 rounded-3xl border-4 border-blue-400 shadow-lg text-center" onclick="setMission('Exploración 🚀', '¡Hora de leer! Estás en modo lectura.')">
+            <div class="card-mission bg-white p-6 rounded-3xl border-4 border-blue-400 shadow-lg text-center"
+                onclick="setMission('Exploración 🚀', '¡Hora de leer! Estás en modo lectura.')">
                 <div class="text-5xl mb-4">🚀</div>
                 <h3 class="font-bold text-lg">Exploración</h3>
             </div>
-            <div class="card-mission bg-white p-6 rounded-3xl border-4 border-green-400 shadow-lg text-center" onclick="setMission('Sonido 🎵', '¡A disfrutar! Estás en modo música.')">
+            <div class="card-mission bg-white p-6 rounded-3xl border-4 border-green-400 shadow-lg text-center"
+                onclick="setMission('Sonido 🎵', '¡A disfrutar! Estás en modo música.')">
                 <div class="text-5xl mb-4">🎵</div>
                 <h3 class="font-bold text-lg">Sonido</h3>
             </div>
@@ -42,8 +60,10 @@
         <div class="bg-white p-8 rounded-3xl border-4 border-indigo-200 text-center shadow-lg">
             <h3 class="text-xl font-bold mb-4 text-indigo-900">¿Tienes tu PIN de Misión Privada?</h3>
             <div class="flex justify-center gap-4">
-                <input type="text" placeholder="Tu PIN aquí..." class="p-4 rounded-2xl border-4 border-gray-100 w-64 text-center font-bold text-xl">
-                <button class="bg-indigo-600 text-white px-8 py-4 rounded-2xl font-bold hover:bg-indigo-700 transition">ENTRAR</button>
+                <input type="text" placeholder="Tu PIN aquí..."
+                    class="p-4 rounded-2xl border-4 border-gray-100 w-64 text-center font-bold text-xl">
+                <button
+                    class="bg-indigo-600 text-white px-8 py-4 rounded-2xl font-bold hover:bg-indigo-700 transition">ENTRAR</button>
             </div>
         </div>
     </main>
@@ -62,4 +82,5 @@
     <script src="js/main.js"></script>
     </script>
 </body>
+
 </html>
